@@ -54,7 +54,6 @@ ZSH_THEME="robbyrussell"
 # Uncomment the following line to display red dots whilst waiting for completion.
 # You can also set it to another string to have that shown instead of the default red dots.
 # e.g. COMPLETION_WAITING_DOTS="%F{yellow}waiting...%f"
-#
 # Caution: this setting can cause issues with multiline prompts in zsh < 5.7.1 (see #5765)
 # COMPLETION_WAITING_DOTS="true"
 
@@ -84,9 +83,16 @@ plugnis=(fzf)
 
 source $ZSH/oh-my-zsh.sh
 
-#export FZF_DEFAULT_COMMAND="cd (fd --type directory | fzf)"
+alias explorer="gio open"
 
-export FZF_DEFAULT_OPTS="--preview 'batcat --color=always {}'"
+alias idea="/opt/idea-IU-223.8617.56/bin/idea.sh"
+
+alias vim="nvim"
+
+alias tma="tmux a"
+alias tmx="tmux new"
+
+alias bat="batcat"
 
 function cdf() {
 	local dir
@@ -95,7 +101,7 @@ function cdf() {
 
 function vzf() {
 	local vim
-	vim=$(find ~ -type f 2> /dev/null | fzf +m) && vim "$vim"
+	vim=$(find ~ -type f 2> /dev/null | fzf +m --preview 'batcat --color=always {}') && vim "$vim"
 }
 
 # User configuration
@@ -105,3 +111,24 @@ function vzf() {
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
+# Preferred editor for local and remote sessions
+# if [[ -n $SSH_CONNECTION ]]; then
+#   export EDITOR='vim'
+# else
+#   export EDITOR='mvim'
+# fi
+
+# Compilation flags
+# export ARCHFLAGS="-arch x86_64"
+
+# Set personal aliases, overriding those provided by oh-my-zsh libs,
+# plugins, and themes. Aliases can be placed here, though oh-my-zsh
+# users are encouraged to define aliases within the ZSH_CUSTOM folder.
+# For a full list of active aliases, run `alias`.
+#
+# Example aliases
+# alias zshconfig="mate ~/.zshrc"
+# alias ohmyzsh="mate ~/.oh-my-zsh"
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
