@@ -1,10 +1,3 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
@@ -16,7 +9,6 @@ export ZSH="$HOME/.oh-my-zsh"
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 ZSH_THEME="robbyrussell"
-# ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -79,30 +71,11 @@ ZSH_THEME="robbyrussell"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git)
-plugnis=(fzf)
+# zsh-autosuggestions zsh-autocomplete)
+# zsh-syntax-highlighting
+# fast-syntax-highlighting
 
 source $ZSH/oh-my-zsh.sh
-
-alias explorer="gio open"
-
-alias idea="/opt/idea-IU-223.8617.56/bin/idea.sh"
-
-alias vim="nvim"
-
-alias tma="tmux a"
-alias tmx="tmux new"
-
-alias bat="batcat"
-
-function cdf() {
-	local dir
-	dir=$(find ~ -type d 2> /dev/null | fzf +m) && cd "$dir"
-}
-
-function vzf() {
-	local vim
-	vim=$(find ~ -type f 2> /dev/null | fzf +m --preview 'batcat --color=always {}') && vim "$vim"
-}
 
 # User configuration
 
@@ -130,5 +103,39 @@ function vzf() {
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+alias vim="sudo vim"
+
+export VISUAL=vim
+export EDITOR=vim
+
+# TMUX
+alias tma="tmux a"
+alias tmx="tmux new"
+
+alias ag="alias | grep $1"
+
+alias bat="batcat"
+
+alias cheat="tldr"
+
+# Ranger
+run_ranger () {
+    echo
+    ranger --choosedir=$HOME/.rangerdir < $TTY
+    LASTDIR=`cat $HOME/.rangerdir`
+    cd "$LASTDIR"
+    zle reset-prompt
+}
+
+zle -N run_ranger
+bindkey '^f' run_ranger
+export NPM_CONFIG_PREFIX=~/.npm-global
+export PATH=$PATH:~/.npm-global/bin
+
+# pnpm
+export PNPM_HOME="/home/cihan/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end

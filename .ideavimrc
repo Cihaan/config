@@ -1,0 +1,23 @@
+sethandler <C-C> a:vim
+sethandler <C-D> a:vim
+sethandler <C-J> a:vim
+sethandler <C-P> a:ide
+sethandler <C-U> a:vim
+sethandler <C-.> a:ide
+
+map <C-p> <ESC>:action HippieBackwardCompletion<CR>a
+
+
+vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
+
+set clipboard+=unnamed
+set scrolloff=10
+
+vim.keymap.set("n", "J", "mzJ`z")
+vim.keymap.set("n", "<C-d>", "<C-d>zz")
+vim.keymap.set("n", "<C-u>", "<C-u>zz")
+
+vim.keymap.set({"n", "v"}, "<leader>d", [["_d]])
+
+vim.keymap.set("i", "<C-c>", "<Esc>")
+set ideajoin
