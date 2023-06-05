@@ -7,6 +7,8 @@ sethandler <C-.> a:ide
 
 map <C-p> <ESC>:action HippieBackwardCompletion<CR>a
 
+set visualbell
+set noerrorbells
 
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
 
