@@ -1,3 +1,12 @@
+let mapleader = " "
+set idearefactormode=keep
+set ideajoin
+set visualbell
+set noerrorbells
+set clipboard+=unnamed
+set scrolloff=10
+set incsearch
+
 sethandler <C-C> a:vim
 sethandler <C-D> a:vim
 sethandler <C-J> a:vim
@@ -5,21 +14,34 @@ sethandler <C-P> a:ide
 sethandler <C-U> a:vim
 sethandler <C-.> a:ide
 
-map <C-p> <ESC>:action HippieBackwardCompletion<CR>a
+"""nnoremap <leader>r :action Refactorings.QuickListPopupAction<CR>
+"""nnoremap <Leader>= :action ReformatCode<CR>
+"""nnoremap <leader>o :action OptimizeImports<CR>
+""" ctrl + ; to show suggestions
+nnoremap <C-;> :action ShowIntentionActions<CR>
+nnoremap gh :action ShowErrorDescription<cr>
+nnoremap ge :action GotoNextError<CR>
+nnoremap gE :action GotoPreviousError<CR>
+""" create new file
+nnoremap <leader>n :action NewElement<cr>
+""" terminal
+nnoremap <leader>t :action ActivateTerminalToolWindow<CR>
+nnoremap zc :action CollapseRegion<CR>
+nnoremap zo :action ExpandRegion<CR>
+""" toggle Region open/close
+nnoremap za :action ToggleRegion<CR>
+nnoremap <leader>zc :action CollapseAllRegions<CR>
+nnoremap <leader>zo :action ExpandAllRegions<CR>
+nnoremap <leader>c :action CommentByLineComment<CR>
 
-set visualbell
-set noerrorbells
-
-vim.keymap.set("n", "<leader>pv", vim.cmd.Ex)
-
-set clipboard+=unnamed
-set scrolloff=10
-
+""" recenter cursor when jumping around
 vim.keymap.set("n", "J", "mzJ`z")
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
-
+""" remap ctrl+; to intellij show suggestions action
+vim.keymap.set({"i", "n"}, "<C-;>",
+""" delete without copying
 vim.keymap.set({"n", "v"}, "<leader>d", [["_d]])
 
+""" remap escape to Ctrl-c
 vim.keymap.set("i", "<C-c>", "<Esc>")
-set ideajoin
