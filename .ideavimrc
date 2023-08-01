@@ -11,6 +11,7 @@ sethandler <C-D> a:vim
 sethandler <C-P> a:ide
 sethandler <C-U> a:vim
 
+nnoremap ss :action SaveAll<CR>
 nnoremap <C-;> :action ShowIntentionActions<CR>
 nnoremap gh :action ShowErrorDescription<cr>
 nnoremap ge :action GotoNextError<CR>
