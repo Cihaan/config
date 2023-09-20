@@ -119,8 +119,10 @@ source $ZSH/oh-my-zsh.sh
 ## Compilation flags
 ## export ARCHFLAGS="-arch x86_64"
 
-alias vim="nvim"
+alias n="nvim"
 alias up="sudo apt update && sudo apt install"
+
+alias l='ls -a'
 
 function notes() {
   local notes_dir="$HOME/Documents/Notes"
