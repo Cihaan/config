@@ -119,10 +119,8 @@ source $ZSH/oh-my-zsh.sh
 ## Compilation flags
 ## export ARCHFLAGS="-arch x86_64"
 
-alias n="nvim"
-alias up="sudo apt update && sudo apt install"
-
 alias l='ls -a'
+alias ll='ls -la'
 
 function notes() {
   local notes_dir="$HOME/Documents/Notes"
@@ -144,7 +142,13 @@ export EDITOR=nvim
 alias tma="tmux a"
 alias tmx="tmux new"
 
+alias vim="nvim"
+
 alias ag="alias | grep $1"
+
+function dir() {
+  mkdir $1 && cd $1
+}
 
 alias bat="batcat"
 
