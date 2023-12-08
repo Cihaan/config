@@ -5,6 +5,8 @@
 vim.opt.relativenumber = false
 vim.opt.scrolloff = 10
 
+vim.opt.guicursor = "i:block"
+
 if vim.fn.has("wsl") == 1 then
   vim.g.clipboard = {
     name = "WslClipboard",
