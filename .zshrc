@@ -1,3 +1,10 @@
+export PATH="$HOME/.symfony5/bin:$PATH"
+#
+# personal scripts path
+#
+# end personal scripts path
+export PATH="$PATH:/opt/my-scripts"
+#
 # zsh/functions/p
 # determine package manager and run command with it
 p() {
@@ -13,20 +20,109 @@ p() {
     command pnpm "$@"
   fi
 }
-
 #
 # pnpm
 export PNPM_HOME="/home/cihan/.local/share/pnpm"
 export PATH="$PNPM_HOME:$PATH"
 # pnpm end
 #
-#
-#
-#th to your oh-my-zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
+#
+# nvim
+#
+# # Updates the Neovim configuration with mine
+ function nup() {
+     # Define the project directory and repository URL
+     PROJECT_DIR="$HOME/Projects/config"
+     REPO_URL="https://github.com/Cihaan/config.git"
 
+     # Define the Neovim configuration path and the backup path
+     NVIM_CONFIG_PATH="$HOME/.config/nvim/lua"
+     BACKUP_PATH="$HOME/.config/nvim/lua_backup"
 
+     # Define colors
+     RED='\033[0;31m'
+     GREEN='\033[0;32m'
+     BLUE='\033[0;34m'
+     NC='\033[0m' # No Color
 
+     echo -e "${BLUE}Starting the update process...${NC}"
+
+     # Check if the project directory exists
+     if [ ! -d "$PROJECT_DIR" ]; then
+         echo -e "${BLUE}\n--- CLONING THE REPOSITORY ---${NC}"
+         echo "Project directory does not exist. Cloning the repository..."
+         # Clone the repository if the directory doesn't exist
+         if git clone $REPO_URL $PROJECT_DIR; then
+             echo -e "${GREEN}Repository cloned successfully.${NC}"
+         else
+             echo -e "${RED}Failed to clone the repository.${NC}"
+             return 1
+         fi
+     else
+         echo -e "${BLUE}\n--- UPDATING THE REPOSITORY ---${NC}"
+         # Change to the project directory
+         cd $PROJECT_DIR || return
+         echo "Changed to project directory: $PROJECT_DIR"
+
+         # Fetch all branches and pull the latest changes
+         echo "Fetching all branches..."
+         if git fetch --all --prune; then
+             echo "Pulling the latest changes..."
+             if git pull --rebase; then
+                 echo -e "${GREEN}Latest changes pulled successfully.${NC}"
+             else
+                 echo -e "${RED}Failed to pull the latest changes.${NC}"
+                 return 1
+             fi
+         else
+             echo -e "${RED}Failed to fetch branches.${NC}"
+             return 1
+         fi
+     fi
+
+     echo -e "${BLUE}\n--- BACKING UP EXISTING CONFIGURATION FILES ---${NC}"
+     # Backup existing nvim configuration files
+     echo "Backing up existing Neovim configuration files..."
+     if [ -d $NVIM_CONFIG_PATH ]; then
+         if cp -r $NVIM_CONFIG_PATH $BACKUP_PATH; then
+             echo -e "${GREEN}Neovim configuration files backed up successfully to the following location:${NC}"
+             echo "$BACKUP_PATH"
+         else
+             echo -e "${RED}Failed to back up the Neovim configuration files.${NC}"
+             return 1
+         fi
+     fi
+
+     echo -e "${BLUE}\n--- COPYING NEW CONFIGURATION FILES ---${NC}"
+     # Copy the nvim configuration files
+     echo "Copying the Neovim configuration files..."
+     if cp -r nvim/lua $NVIM_CONFIG_PATH; then
+         echo -e "${GREEN}Neovim configuration files copied successfully.${NC}"
+     else
+         echo -e "${RED}Failed to copy the Neovim configuration files.${NC}"
+         return 1
+     fi
+
+     echo -e "${BLUE}\n--- OPENING NEOVIM ---${NC}"
+     # Ask the user if they want to open nvim
+     echo "Would you like to open NeoVim to install the new packages? [Y/n]"
+     vared -p '' -c response
+     if [[ "$response" =~ ^([yY][eE][sS]|[yY]|"")$ ]]
+     then
+         echo "Opening Neovim..."
+         if nvim; then
+             echo -e "${GREEN}Update process completed successfully.${NC}"
+         else
+             echo -e "${RED}Failed to open Neovim.${NC}"
+             return 1
+         fi
+     else
+         echo -e "${GREEN}Update process completed successfully.${NC}"
+     fi
+ }
+
+# end nvim
 #
 ## Set name of the theme to load --- if set to "random", it will
 ## load a random theme each time oh-my-zsh is loaded, in which case,
@@ -94,7 +190,7 @@ ZSH_THEME="robbyrussell"
 ## Custom plugins may be added to $ZSH_CUSTOM/plugins/
 ## Example format: plugins=(rails git textmate ruby lighthouse)
 ## Add wisely, as too many plugins slow down shell startup.
-plugins=(git zsh-autosuggestions zsh-syntax-highlighting fast-syntax-highlighting)
+plugins=(git zsh-autosuggestions zsh-syntax-highlighting fast-syntax-highlighting docker docker-compose)
 # 
 ## zsh-autosuggestions zsh-autocomplete)
 ## zsh-syntax-highlighting
@@ -118,55 +214,35 @@ source $ZSH/oh-my-zsh.sh
 #
 ## Compilation flags
 ## export ARCHFLAGS="-arch x86_64"
-
+#
+alias vim="nvim"
+#
+alias explorer="nautilus . &"
+#
+alias rm="trash-put"
+#
 alias l='ls -a'
 alias ll='ls -la'
-
-function notes() {
-  local notes_dir="$HOME/Documents/Notes"
-  local timestamp="$(date +%Y-%m-%d_%H-%M-%S)"
-  local meeting_name="${1}"
-  local note_file="${notes_dir}/${meeting_name}.md"
-
-  # Create the notes directory if it doesn't exist
-  mkdir -p "$notes_dir"
-
-  # Open Vim to take notes
-  vim "$note_file"
-}
-
-export VISUAL=nvim
-export EDITOR=nvim
-
-## TMUX
-alias tma="tmux a"
-alias tmx="tmux new"
-
-alias vim="nvim"
-
-alias ag="alias | grep $1"
-
+#
 function dir() {
   mkdir $1 && cd $1
 }
-
-alias bat="batcat"
-
+#
+function c() {
+  cd ~/Projects/
+}
+#
+export VISUAL=nvim
+export EDITOR=nvim
+#
+## TMUX
+alias tma="tmux a"
+alias tmx="tmux new"
+#
+alias ag="alias | grep $1"
+#
 bindkey '^[[Z' autosuggest-accept
-# bindkey '\t' expand-or-complete
-
-## Ranger
-run_ranger () {
-    echo
-        ranger --choosedir=$HOME/.rangerdir < $TTY
-            LASTDIR=`cat $HOME/.rangerdir`
-                cd "$LASTDIR"
-                    zle reset-prompt
-                    }
-
-                    zle -N run_ranger
-                    bindkey '^f' run_ranger
-
+#
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 __conda_setup="$('/home/cihan/anaconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
@@ -181,8 +257,11 @@ else
 fi
 unset __conda_setup
 # <<< conda initialize <<<
-
+#
 export GOROOT=/usr/local/go
 export GOPATH=$HOME/go
 export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
-
+#
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
