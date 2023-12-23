@@ -1,0 +1,249 @@
+{
+  "workbench.startupEditor": "none",
+  "git.autofetch": true,
+  "vite.autoStart": false,
+  "git.allowForcePush": true,
+  "editor.inlineSuggest.enabled": true,
+  "workbench.sideBar.location": "right",
+  "github.copilot.enable": {
+    "*": true,
+    "plaintext": true,
+    "markdown": true,
+    "scminput": false,
+    "yaml": false,
+    "go": true,
+    "rust": true,
+    "python": true
+  },
+  "security.workspace.trust.untrustedFiles": "open",
+  "editor.bracketPairColorization.independentColorPoolPerBracketType": true,
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "editor.minimap.enabled": false,
+  "githubPullRequests.pullBranch": "never",
+  "terminal.integrated.gpuAcceleration": "off",
+  "go.toolsManagement.autoUpdate": true,
+  "[scss]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "githubPullRequests.createOnPublishBranch": "never",
+  "editor.inlineSuggest.showToolbar": "always",
+  "vim.matchpairs": "(:),{:},[:],':',\":\",`:`",
+  "vim.neovimConfigPath": "~/.config/nvim/init.lua",
+  "vim.overrideCopy": false,
+  "terminal.integrated.defaultProfile.linux": "zsh",
+  "terminal.explorerKind": "external",
+  "vim.commandLineModeKeyBindingsNonRecursive": [],
+  "editor.cursorSurroundingLines": 10,
+  "window.commandCenter": true,
+  "window.menuBarVisibility": "toggle",
+  "extensions.experimental.affinity": {
+    "asvetliakov.vscode-neovim": 1
+  },
+  "workbench.iconTheme": "material-icon-theme",
+  "editor.fontFamily": "JetBrainsMono Nerd Font",
+  "editor.fontSize": 16,
+  "editor.fontLigatures": true,
+  "projectManager.git.baseFolders": ["~/Projects/"],
+  "projectManager.sortList": "Recent",
+  "vim.leader": "<space>",
+  "vim.foldfix": true,
+  "vim.hlsearch": true,
+  "vim.useSystemClipboard": true,
+  "vim.highlightedyank.enable": true,
+  "vim.highlightedyank.color": "rgba(230, 97, 89, 0.7)",
+  "vim.highlightedyank.textColor": "white",
+  "vim.smartRelativeLine": true,
+  "editor.formatOnSave": true,
+  "workbench.preferredDarkColorTheme": "Everforest Dark",
+  "workbench.preferredLightColorTheme": "Everforest Light",
+  "workbench.colorTheme": "Everforest Light",
+  "editor.stickyScroll.enabled": true,
+  "editor.linkedEditing": true,
+  "editor.suggest.insertMode": "replace",
+  "typescript.preferences.importModuleSpecifier": "non-relative",
+  "explorer.confirmDragAndDrop": false,
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "terminal.integrated.cwd": "${workspaceFolder}",
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit",
+    "source.fixAll.tslint": "explicit"
+  },
+  "vim.normalModeKeyBindingsNonRecursive": [
+    {
+      "before": ["<c-a>"],
+      "after": ["esc", "g", "g", "V", "G"]
+    },
+    {
+      "before": ["leader", "c", "a"],
+      "commands": ["editor.action.quickFix"]
+    },
+    {
+      "before": ["leader", "c", "r"],
+      "commands": ["editor.action.rename"]
+    },
+    {
+      "before": ["y", "p"],
+      "commands": ["editor.action.copyLinesDownAction"]
+    },
+    {
+      "before": ["<leader>", "s"],
+      "commands": ["workbench.action.files.save"]
+    },
+    {
+      "before": ["<leader>", "c", "f"],
+      "commands": ["editor.action.formatSelection"]
+    },
+    {
+      "before": ["<s-h>"],
+      "commands": ["workbench.action.previousEditor"]
+    },
+    {
+      "before": ["<s-l>"],
+      "commands": ["workbench.action.nextEditor"]
+    },
+    {
+      "before": ["K"],
+      "commands": ["editor.action.showHover"]
+    },
+    {
+      "before": ["g", "u"],
+      "commands": ["editor.action.showReferences"]
+    },
+    {
+      "before": ["g", "i"],
+      "commands": ["editor.action.goToImplementation"]
+    },
+    {
+      "before": ["<leader>", "r", "f"],
+      "commands": ["fileutils.renameFile"]
+    },
+    {
+      "before": ["<leader>", "p", "s"],
+      "commands": ["extension.fuzzySearch"]
+    },
+    // leader + g + b to toggle git blame
+    {
+      "before": ["<leader>", "g", "b"],
+      "commands": ["gitlens.toggleFileBlame"]
+    },
+    // leader + g + s to toggle git status
+    {
+      "before": ["<leader>", "g", "s"],
+      "commands": ["gitlens.toggleCodeLens"]
+    },
+    // leader + g + h to toggle git history
+    {
+      "before": ["<leader>", "g", "h"],
+      "commands": ["gitlens.showQuickCommitDetails"]
+    },
+    // leader + g + d to toggle git diff
+    {
+      "before": ["<leader>", "g", "d"],
+      "commands": ["gitlens.diffWithPrevious"]
+    },
+    // leader + g + c to toggle git commit
+    {
+      "before": ["<leader>", "g", "c"],
+      "commands": ["gitlens.showQuickCommitDetails"]
+    },
+    // leader + - to split editor
+    {
+      "before": ["<leader>", "-"],
+      "commands": ["workbench.action.splitEditor"]
+    },
+    // leader + = to split editor
+    {
+      "before": ["<leader>", "="],
+      "commands": ["workbench.action.splitEditorRight"]
+    },
+    // ctrl + h to move left
+    {
+      "before": ["<c-h>"],
+      "commands": ["workbench.action.navigateLeft"]
+    },
+    // ctrl + l to move right
+    {
+      "before": ["<c-l>"],
+      "commands": ["workbench.action.navigateRight"]
+    },
+    // leader + o to open project from project manager extension
+    {
+      "before": ["<leader>", "o"],
+      "commands": ["projectManager.listGitProjects#sideBarGit"]
+    },
+    {
+      "before": ["<leader>", "c", "c"],
+      "commands": ["inlineChat.start"]
+    }
+  ],
+  "vim.visualModeKeyBindings": [
+    {
+      "before": ["J"],
+      "commands": ["editor.action.moveLinesDownAction"]
+    },
+    {
+      "before": ["K"],
+      "commands": ["editor.action.moveLinesUpAction"]
+    },
+    {
+      "before": ["<tab>"],
+      "commands": ["editor.action.indentLines"]
+    },
+    {
+      "before": ["<s-tab>"],
+      "commands": ["editor.action.outdentLines"]
+    },
+    {
+      "before": ["<leader>", "c", "e"],
+      "commands": ["github.copilot.interactiveEditor.explain"]
+    },
+    {
+      "before": ["<leader>", "c", "f"],
+      "commands": ["github.copilot.interactiveEditor.fix"]
+    },
+    {
+      "before": ["<leader>", "c", "t"],
+      "commands": ["github.copilot.interactiveEditor.generateTests"]
+    }
+  ],
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[css]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescriptscriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[vue]": {
+    "editor.defaultFormatter": "Vue.volar"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "artizon-vscode-surround.custom-patterns": {
+    "1": {
+      "startPattern": "\\(",
+      "endPattern": "\\)"
+    },
+    "2": {
+      "startPattern": "function \\w+\\([^\\n]*\\)(: \\w+)? {",
+      "endPattern": "}"
+    }
+  },
+  "window.autoDetectColorScheme": true,
+  "window.zoomLevel": 2,
+  "everforest.diagnosticTextBackgroundOpacity": "25%",
+  "everforest.lightContrast": "hard"
+}
