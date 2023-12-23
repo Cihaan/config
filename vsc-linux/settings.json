@@ -55,6 +55,7 @@
   "vim.highlightedyank.color": "rgba(230, 97, 89, 0.7)",
   "vim.highlightedyank.textColor": "white",
   "vim.smartRelativeLine": true,
+  "editor.cursorStyle": "block",
   "editor.formatOnSave": true,
   "workbench.preferredDarkColorTheme": "Everforest Dark",
   "workbench.preferredLightColorTheme": "Everforest Light",
@@ -245,5 +246,6 @@
   "window.autoDetectColorScheme": true,
   "window.zoomLevel": 2,
   "everforest.diagnosticTextBackgroundOpacity": "25%",
-  "everforest.lightContrast": "hard"
+  "everforest.lightContrast": "hard",
+  "terminal.integrated.fontFamily": "JetBrains Mono Regular"
 }
