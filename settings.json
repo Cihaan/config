@@ -11,7 +11,7 @@
   "editor.fontSize": 15,
   // tweak those ones
   "apc.activityBar": {
-    "position": "bottom",
+    "position": "top",
     "hideSettings": true,
     "size": 24
   },
@@ -71,7 +71,6 @@
   "editor.cursorSurroundingLines": 10,
   "window.commandCenter": true,
   "window.menuBarVisibility": "toggle",
-  "security.allowedUNCHosts": ["wsl.localhost"],
   "extensions.experimental.affinity": {
     "asvetliakov.vscode-neovim": 1
   },
@@ -301,11 +300,11 @@
     "bin"
   ],
   "thunder-client.sidebar.defaultTab": "Collections",
+  "window.zoomLevel": 2,
   "editor.scrollbar.horizontal": "hidden",
   "editor.scrollbar.vertical": "hidden",
   "workbench.editor.tabSizing": "shrink",
   "workbench.editor.tabActionCloseVisibility": false,
-  "window.zoomLevel": 1,
   "workbench.layoutControl.enabled": false,
   "terminal.integrated.env.linux": {},
   "terminal.integrated.env.windows": {},
@@ -339,6 +338,7 @@
         "showLog": true
       }
     ]
-  }
+  },
+  "activitusbar.alignment": "Right",
+  "workbench.activityBar.location": "hidden"
 }
-
