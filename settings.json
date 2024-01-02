@@ -1,10 +1,44 @@
 {
   "workbench.startupEditor": "none",
+  "workbench.iconTheme": "moxer-icons",
   "git.autofetch": true,
+  "editor.tabSize": 2,
+  "explorer.compactFolders": false,
   "vite.autoStart": false,
+  "terminal.integrated.fontSize": 15,
+  "editor.fontFamily": "Geist Mono",
+  "terminal.integrated.fontFamily": "Geist Mono",
+  "editor.fontSize": 15,
+  // tweak those ones
+  "apc.activityBar": {
+    "position": "bottom",
+    "hideSettings": true,
+    "size": 24
+  },
+  "apc.statusBar": {
+    "position": "editor-bottom",
+    "height": 22,
+    "fontSize": 12
+  },
+  "apc.electron": {
+    "titleBarStyle": "hiddenInset",
+    "trafficLightPosition": {
+      "x": 8,
+      "y": 10
+    }
+  },
+  "apc.header": {
+    "height": 34,
+    "fontSize": 14
+  },
+  "apc.listRow": {
+    "height": 21,
+    "fontSize": 13
+  },
+  "window.titleBarStyle": "custom",
+  // end tweak
   "git.allowForcePush": true,
   "editor.inlineSuggest.enabled": true,
-  "workbench.sideBar.location": "right",
   "github.copilot.enable": {
     "*": true,
     "plaintext": true,
@@ -30,7 +64,6 @@
   "githubPullRequests.createOnPublishBranch": "never",
   "editor.inlineSuggest.showToolbar": "always",
   "vim.matchpairs": "(:),{:},[:],':',\":\",`:`",
-  "vim.neovimConfigPath": "~/.config/nvim/init.lua",
   "vim.overrideCopy": false,
   "terminal.integrated.defaultProfile.linux": "zsh",
   "terminal.explorerKind": "external",
@@ -38,14 +71,18 @@
   "editor.cursorSurroundingLines": 10,
   "window.commandCenter": true,
   "window.menuBarVisibility": "toggle",
+  "security.allowedUNCHosts": ["wsl.localhost"],
   "extensions.experimental.affinity": {
     "asvetliakov.vscode-neovim": 1
   },
-  "workbench.iconTheme": "material-icon-theme",
-  "editor.fontFamily": "JetBrainsMono Nerd Font",
-  "editor.fontSize": 16,
-  "editor.fontLigatures": true,
-  "projectManager.git.baseFolders": ["~/Projects/"],
+  "editor.fontLigatures": false,
+  // "projectManager.git.baseFolders": ["~/Projects/"],
+  "projectManager.git.baseFolders": [
+    "/home/cihan/Projects/",
+    "~/Projects/",
+    "\\\\wsl.localhost\\Ubuntu\\home\\cihan\\Projects"
+  ],
+  "settingsSync.keybindingsPerPlatform": false,
   "projectManager.sortList": "Recent",
   "vim.leader": "<space>",
   "vim.foldfix": true,
@@ -57,9 +94,9 @@
   "vim.smartRelativeLine": true,
   "editor.cursorStyle": "block",
   "editor.formatOnSave": true,
-  "workbench.preferredDarkColorTheme": "Everforest Dark",
+  "workbench.preferredDarkColorTheme": "Aura Dark",
   "workbench.preferredLightColorTheme": "Everforest Light",
-  "workbench.colorTheme": "Everforest Light",
+  "workbench.colorTheme": "Aura Dark",
   "editor.stickyScroll.enabled": true,
   "editor.linkedEditing": true,
   "editor.suggest.insertMode": "replace",
@@ -207,8 +244,13 @@
     {
       "before": ["<leader>", "c", "t"],
       "commands": ["github.copilot.interactiveEditor.generateTests"]
+    },
+    {
+      "before": ["<leader>", "c", "c"],
+      "commands": ["inlineChat.start"]
     }
   ],
+
   "[html]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
@@ -244,8 +286,59 @@
     }
   },
   "window.autoDetectColorScheme": true,
-  "window.zoomLevel": 2,
   "everforest.diagnosticTextBackgroundOpacity": "25%",
   "everforest.lightContrast": "hard",
-  "terminal.integrated.fontFamily": "JetBrains Mono Regular"
+  // "terminal.integrated.fontFamily": "JetBrains Mono Regular"
+  "workbench.sideBar.location": "right",
+  "projectManager.git.ignoredFolders": [
+    "node_modules",
+    "out",
+    "typings",
+    "test",
+    ".haxelib",
+    "vendor",
+    "target",
+    "bin"
+  ],
+  "thunder-client.sidebar.defaultTab": "Collections",
+  "editor.scrollbar.horizontal": "hidden",
+  "editor.scrollbar.vertical": "hidden",
+  "workbench.editor.tabSizing": "shrink",
+  "workbench.editor.tabActionCloseVisibility": false,
+  "window.zoomLevel": 1,
+  "workbench.layoutControl.enabled": false,
+  "terminal.integrated.env.linux": {},
+  "terminal.integrated.env.windows": {},
+  "console-ninja.featureSet": "Community",
+  // Debug config
+  "launch": {
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "type": "chrome",
+        "request": "launch",
+        "name": "Debug Vite Chrome",
+        "url": "http://localhost:5173",
+        "webRoot": "${workspaceFolder}",
+        "sourceMaps": true
+      },
+      {
+        "type": "chrome",
+        "request": "launch",
+        "name": "Debug Vue Chrome",
+        "url": "http://localhost:8080",
+        "webRoot": "${workspaceFolder}",
+        "sourceMaps": true
+      },
+      {
+        "name": "Go debug",
+        "type": "go",
+        "request": "launch",
+        "mode": "debug",
+        "program": "${workspaceFolder}",
+        "showLog": true
+      }
+    ]
+  }
 }
+
