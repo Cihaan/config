@@ -1,0 +1,270 @@
+// Place your key bindings in this file to override the defaultsauto[]
+[
+  {
+    "key": "ctrl+e",
+    "command": "workbench.action.toggleSidebarVisibility"
+  },
+  {
+    "key": "ctrl+e",
+    "command": "workbench.files.action.focusFilesExplorer",
+    "when": "editorFocus"
+  },
+  // ctrl+g to toggle between git visibily
+  {
+    "key": "ctrl+g",
+    "command": "workbench.view.scm"
+  },
+  {
+    "key": "ctrl+g",
+    "command": "workbench.action.toggleSidebarVisibility",
+    "when": "!terminalFocus && !editorFocus"
+  },
+  // remove tab move focus shortcut
+  {
+    "key": "ctrl+tab",
+    "command": "-workbench.action.quickOpenNavigateNextInEditorPicker"
+  },
+  {
+    "key": "a",
+    "command": "explorer.newFile",
+    "when": "filesExplorerFocus && !inputFocus"
+  },
+  {
+    "key": "shift+a",
+    "command": "explorer.newFolder",
+    "when": "filesExplorerFocus && !inputFocus"
+  },
+  {
+    "key": "r",
+    "command": "renameFile",
+    "when": "filesExplorerFocus && !inputFocus"
+  },
+  {
+    "key": "y",
+    "command": "filesExplorer.copy",
+    "when": "filesExplorerFocus && !inputFocus"
+  },
+  {
+    "key": "p",
+    "command": "filesExplorer.paste",
+    "when": "filesExplorerFocus && !inputFocus"
+  },
+  {
+    "key": "d",
+    "command": "deleteFile",
+    "when": "filesExplorerFocus && !inputFocus"
+  },
+  {
+    "key": "ctrl+p",
+    "command": "workbench.action.quickOpen"
+  },
+  {
+    "key": "ctrl+f",
+    // "command": "actions.find"
+    // quick open with @
+  },
+  {
+    "key": "ctrl+shift+f",
+    "command": "workbench.action.findInFiles"
+  },
+  {
+    "key": "ctrl+shift+f",
+    "command": "workbench.action.toggleSidebarVisibility",
+    "when": "!editorFocus && searchViewletVisible"
+  },
+  {
+    "key": "ctrl+n",
+    "command": "editor.action.startFindReplaceAction"
+  },
+  {
+    "key": "ctrl+shift+n",
+    "command": "workbench.action.replaceInFiles"
+  },
+  {
+    "key": "ctrl+shift+n",
+    "command": "workbench.action.toggleSidebarVisibility",
+    "when": "!editorFocus && searchViewletVisible"
+  },
+  {
+    "key": "ctrl+j",
+    "command": "selectNextCodeAction",
+    "when": "editorHasCodeActionsProvider && editorHasCodeActionsProvider && editorTextFocus && !inReferenceSearchEditor && !suggestWidgetVisible && !inSnippetMode"
+  },
+  {
+    "key": "ctrl+j",
+    "command": "selectNextReferenceSearchResult",
+    "when": "inReferenceSearchEditor && referenceSearchVisible && !suggestWidgetVisible && !inSnippetMode"
+  },
+  {
+    "key": "ctrl+k",
+    "command": "selectPrevSuggestion"
+  },
+  {
+    "key": "ctrl+k",
+    "command": "selectPreviousCodeAction",
+    "when": "editorHasCodeActionsProvider && editorHasCodeActionsProvider && editorTextFocus && !inReferenceSearchEditor && !suggestWidgetVisible && !inSnippetMode"
+  },
+  {
+    "key": "ctrl+j",
+    "command": "workbench.action.quickOpenSelectNext",
+    "when": "inQuickOpen"
+  },
+  {
+    "key": "ctrl+k",
+    "command": "workbench.action.quickOpenSelectPrevious",
+    "when": "inQuickOpen"
+  },
+  {
+    "key": "ctrl+m",
+    "command": "editor.action.addSelectionToNextFindMatch",
+    "when": "editorFocus"
+  },
+  {
+    "key": "ctrl+l g",
+    "command": "-extension.openInGitHub"
+  },
+  {
+    "key": "ctrl+l p",
+    "command": "-extension.openPrGitProvider"
+  },
+  {
+    "key": "ctrl+l c",
+    "command": "-extension.copyGitHubLinkToClipboard"
+  },
+  //  ctrl+maj+l to focus next terminal split
+  {
+    "key": "ctrl+shift+l",
+    "command": "workbench.action.terminal.focusPrevious",
+    "when": "terminalFocus"
+  },
+  // {
+  //   // replace in currently opened file
+  //   "key": "ctrl+h",
+  //   "command": "editor.action.startFindReplaceAction",
+  //   "when": "!terminalFocus && editorFocus"
+  // },
+  // in terminal, ctrl+h will toggle terminal
+  {
+    "key": "ctrl+t",
+    "command": "workbench.action.terminal.toggleTerminal",
+    "when": "terminalFocus"
+  },
+  // move to left window if not in file explorer
+  {
+    "key": "ctrl+shift+left",
+    "command": "workbench.action.focusPreviousGroup",
+    "when": "filesExplorer"
+  },
+  //  ctrl+maj+h to focus previous terminal split
+  {
+    "key": "ctrl+shift+h",
+    "command": "workbench.action.terminal.focusNext",
+    "when": "terminalFocus"
+  },
+  {
+    "key": "ctrl+shift+n",
+    "command": "-workbench.action.newWindow"
+  },
+  {
+    "key": "ctrl+shift+c",
+    "command": "-workbench.action.terminal.openNativeConsole",
+    "when": "!terminalFocus"
+  },
+  // ctrl+b to toggle secondary side bar
+  {
+    "key": "ctrl+b",
+    "command": "workbench.action.toggleAuxiliaryBar",
+    "when": "!terminalFocus"
+  },
+  {
+    "key": "ctrl+h",
+    "command": "-editor.action.startFindReplaceAction",
+    "when": "editorFocus || editorIsOpen"
+  },
+  {
+    "key": "ctrl+h",
+    "command": "workbench.action.navigateLeft",
+    "when": "!editorFocus && !terminalFocus"
+  },
+  // ctrl + o to open project manager project
+  {
+    "key": "ctrl+o",
+    "command": "projectManager.listGitProjects#sideBarGit",
+    "when": "!terminalFocus && !editorFocus"
+  },
+  {
+    "key": "ctrl+t",
+    "command": "workbench.action.terminal.toggleTerminal",
+    "when": "!terminalFocus && editorFocus"
+  },
+  {
+    "key": "ctrl+t",
+    "command": "workbench.action.terminal.toggleTerminal",
+    "when": "!terminalFocus && !editorFocus && !filesExplorerFocus"
+  },
+  // make it so that ctrl+shift+d toggles the debug side menu
+  {
+    "key": "ctrl+shift+d",
+    "command": "workbench.view.debug",
+    "when": "editorFocus"
+  },
+  {
+    "key": "ctrl+shift+d",
+    "command": "workbench.action.toggleSidebarVisibility",
+    "when": "!editorFocus"
+  },
+  // ctrl+shift+j to open debugger console
+  {
+    "key": "ctrl+shift+j",
+    "command": "workbench.debug.action.toggleRepl"
+  },
+  {
+    "key": "ctrl+w",
+    "command": "workbench.action.closeActiveEditor"
+  },
+  {
+    "key": "capslock",
+    "command": "extension.vim_escape",
+    "when": "editorTextFocus && vim.active && !inDebugRepl"
+  },
+  // shift + shift to quick open file
+  {
+    "key": "shift shift",
+    "command": "workbench.action.quickOpen",
+  },
+  // ctrl + p to search symbol
+  {
+    "key": "ctrl+p",
+    "command": "workbench.action.gotoSymbol"
+  },
+  // ctrl + f to search in file
+  {
+    "key": "ctrl+f",
+    "command": "actions.find"
+  },
+  {
+    "key": "ctrl+6",
+    "command": "workbench.action.zoomOut"
+  },
+  {
+    "key": "ctrl+-",
+    "command": "-workbench.action.zoomOut"
+  },
+  {
+    "key": "ctrl+shift+`",
+    "command": "-workbench.action.terminal.new",
+    "when": "terminalProcessSupported || terminalWebExtensionContributedProfile"
+  },
+  // ctrl + w to kill current terminal
+  {
+    "key": "ctrl+w",
+    "command": "workbench.action.terminal.kill",
+    "when": "terminalFocus"
+  },
+  // ctrl + t to open a new terminal
+  {
+    "key": "ctrl+shift+t",
+    "command": "workbench.action.terminal.new",
+    "when": "terminalFocus"
+  }
+]
