@@ -1,3 +1,5 @@
+Plug 'terryma/vim-multiple-cursors'
+
 let mapleader = " "
 set idearefactormode=keep
 set ideajoin
@@ -7,21 +9,22 @@ set clipboard+=unnamed
 set scrolloff=10
 set incsearch
 
+sethandler <C-C> a:vim
 sethandler <C-D> a:vim
-sethandler <C-P> a:ide
+sethandler <C-P> a:vim
 sethandler <C-U> a:vim
+sethandler <C-.> a:ide
 
-nnoremap ss :action SaveAll<CR>
+" nnoremap <leader>r :action Refactorings.QuickListPopupAction<CR>
+" nnoremap <Leader>= :action ReformatCode<CR>
+" nnoremap <leader>o :action OptimizeImports<CR>
 nnoremap <C-;> :action ShowIntentionActions<CR>
 nnoremap gh :action ShowErrorDescription<cr>
 nnoremap ge :action GotoNextError<CR>
 nnoremap gE :action GotoPreviousError<CR>
-nnoremap gd :action GotoDeclaration<CR>
-nnoremap gi :action GotoImplementation<CR>
-nnoremap gu :action FindUsages<CR>
 nnoremap <leader>e :action ActivateProjectToolWindow<CR>
 " create new file
-nnoremap <leader>n :action NewElement<CR>
+nnoremap <leader>n :action NewElement<cr>
 " terminal
 nnoremap <leader>t :action ActivateTerminalToolWindow<cr>
 nnoremap zc :action CollapseRegion<CR>
@@ -35,4 +38,17 @@ nnoremap <leader>c :action CommentByLineComment<CR>
 vim.keymap.set("n", "J", "mzJ`z")
 vim.keymap.set("n", "<C-d>", "<C-d>zz")
 vim.keymap.set("n", "<C-u>", "<C-u>zz")
+" remap ctrl+; to intellij show suggestions action
+vim.keymap.set({"i", "n"}, "<C-;>",
+" delete without copying
 vim.keymap.set({"n", "v"}, "<leader>d", [["_d]])
+
+"add multi cursor bindings"
+vim.keymap.set({"n", "v"}, "<C-C>", "<Esc><C-C>")
+vim.keymap.set({"n", "v"}, "<C-D>", "<Esc><C-D>")
+vim.keymap.set({"n", "v"}, "<C-J>", "<Esc><C-J>")
+vim.keymap.set({"n", "v"}, "<C-P>", "<Esc><C-P>")
+
+" remap jk to escape
+imap jk <Esc>
+set timeoutlen=100
