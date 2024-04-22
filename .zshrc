@@ -2,13 +2,22 @@ export PATH="$HOME/.symfony5/bin:$PATH"
 #
 # sync config/home config with github/home
 up_home() {
+    printf "========"
+    printf "UPDATING HOME CONFIG"
+    printf "========"
     cd ~/Projects/config/ \
     && git pull origin main \
     && cp ~/Projects/config/.zshrc ~/.zshrc \
     && cp ~/Projects/config/.ideavimrc ~/.ideavimrc \
     && cd --
+    printf "========"
+    printf "UPDATED HOME CONFIG SUCCESSFULLY"
+    printf "========"
 }
 up_config() {
+    printf "========"
+    printf "UPDATING REMOTE CONFIG"
+    printf "========"
     cd ~/Projects/config/ \
     && git pull origin main \
     && cp ~/.zshrc ~/Projects/config/.zshrc \
@@ -17,6 +26,9 @@ up_config() {
     && git commit -m "%Y-%m-%d-%H-%M" \
     && git push \
     && cd --
+    printf "========"
+    printf "UPDATED REMOTE CONFIG SUCCESSFULLY"
+    printf "========"
 }
 # personal scripts path
 #
