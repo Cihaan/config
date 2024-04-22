@@ -1,5 +1,23 @@
 export PATH="$HOME/.symfony5/bin:$PATH"
 #
+# sync config/home config with github/home
+up_home() {
+    cd ~/Projects/config/ \
+    && git pull origin main \
+    && cp ~/Projects/config/.zshrc ~/.zshrc \
+    && cp ~/Projects/config/.ideavimrc ~/.ideavimrc \
+    && cd --
+}
+up_config() {
+    cd ~/Projects/config/ \
+    && git pull origin main \
+    && cp ~/.zshrc ~/Projects/config/.zshrc \
+    && cp ~/.ideavimrc ~/Projects/config/.ideavimrc \
+    && git add . \
+    && git commit -m "%Y-%m-%d-%H-%M" \
+    && git push \
+    && cd --
+}
 # personal scripts path
 #
 # end personal scripts path

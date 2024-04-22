@@ -10,7 +10,7 @@ set incsearch
 " KEY MAPPING
 sethandler <C-A> a:ide
 sethandler <C-B> a:ide
-sethandler <C-C> a:vim
+sethandler <C-C> a:ide
 sethandler <C-D> a:vim
 sethandler <C-E> a:ide
 sethandler <C-F> a:ide
@@ -41,6 +41,8 @@ nmap ge <Action>(GotoNextError)
 nmap gE <Action>(GotoPreviousError)
 nmap gd <Action>(GotoDeclaration)
 nmap gi <Action>(GotoImplementation)
+nmap <s-h> <Action>(PreviousTab)
+nmap <s-l> <Action>(NextTab)
 
 " CODE NAVIGATION
 nmap gu <Action>(FindUsages)
@@ -48,13 +50,14 @@ nmap za <Action>(Fold)
 nmap zc <Action>(CollapseRegion)
 nmap zo <Action>(ExpandRegion)
 
-" in normal mode
-nmap <s-h> <Action>(PreviousTab)
-nmap <s-l> <Action>(NextTab)
-
 " CODE ACTIONS
 nmap <C-;> :action ShowIntentionActions<CR>
 nmap<leader>cr :action RenameElement<CR>
+nmap <C-Enter> :action Console.Jdbc.Execute<CR>
+
+" CODE FORMATING
+vmap <Tab> >gv
+vmap <S-Tab> <gv
 
 " MACROS
 vim.keymap.set("n", "J", "mzJ`z")
