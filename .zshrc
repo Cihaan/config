@@ -2,33 +2,33 @@ export PATH="$HOME/.symfony5/bin:$PATH"
 #
 # sync config/home config with github/home
 up_home() {
-    printf "========"
-    printf "UPDATING HOME CONFIG"
-    printf "========"
+    echo "========"
+    echo "UPDATING HOME CONFIG"
+    echo "========"
     cd ~/Projects/config/ \
     && git pull origin main \
     && cp ~/Projects/config/.zshrc ~/.zshrc \
     && cp ~/Projects/config/.ideavimrc ~/.ideavimrc \
     && cd --
-    printf "========"
-    printf "UPDATED HOME CONFIG SUCCESSFULLY"
-    printf "========"
+    echo "========"
+    echo "UPDATED HOME CONFIG SUCCESSFULLY"
+    echo "========"
 }
 up_config() {
-    printf "========"
-    printf "UPDATING REMOTE CONFIG"
-    printf "========"
+    echo "========"
+    echo "UPDATING REMOTE CONFIG"
+    echo "========"
     cd ~/Projects/config/ \
     && git pull origin main \
     && cp ~/.zshrc ~/Projects/config/.zshrc \
     && cp ~/.ideavimrc ~/Projects/config/.ideavimrc \
     && git add . \
-    && git commit -m "%Y-%m-%d-%H-%M" \
+    && git commit -m "$(date +'%Y-%m-%d-%H-%M')" \
     && git push \
     && cd --
-    printf "========"
-    printf "UPDATED REMOTE CONFIG SUCCESSFULLY"
-    printf "========"
+    echo "========"
+    echo "UPDATED REMOTE CONFIG SUCCESSFULLY"
+    echo "========"
 }
 # personal scripts path
 #
