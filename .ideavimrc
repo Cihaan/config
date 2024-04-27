@@ -56,8 +56,8 @@ nmap<leader>cr :action RenameElement<CR>
 nmap <C-Enter> :action Console.Jdbc.Execute<CR>
 
 " CODE FORMATING
-vmap <Tab> >gv
-vmap <S-Tab> <gv
+" vmap <Tab> >gv
+" vmap <S-Tab> <gv
 
 " MACROS
 vim.keymap.set("n", "J", "mzJ`z")
