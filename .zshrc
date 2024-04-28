@@ -19,7 +19,6 @@ up_config() {
     echo "UPDATING REMOTE CONFIG"
     echo "========"
     cd ~/Projects/config/ \
-    && git pull origin main \
     && cp ~/.zshrc ~/Projects/config/.zshrc \
     && cp ~/.ideavimrc ~/Projects/config/.ideavimrc \
     && git add . \
