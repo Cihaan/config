@@ -1,31 +1,20 @@
-export PATH="$HOME/.symfony5/bin:$PATH"
-#
-export PATH="$PATH:/opt/my-scripts"
+# git clone https://github.com/zsh-users/zsh-autosuggestions ~/.oh-my-zsh/custom/plugins/zsh-autosuggestions
+# git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.oh-my-zsh/custom/plugins/zsh-syntax-highlighting
+# git clone https://github.com/zsh-users/zsh-completions.git ~/.oh-my-zsh/custom/plugins/zsh-completions
+# git clone https://github.com/zsh-users/zsh-history-substring-search.git ~/.oh-my-zsh/custom/plugins/zsh-history-substring-search
+export PATH=~/.npm-global/bin:$PATH
 #
 # pnpm
-export PNPM_HOME="/home/cihan/.local/share/pnpm"
-export PATH="$PNPM_HOME:$PATH"
+# export PNPM_HOME="/home/cihan/.local/share/pnpm"
+# export PATH="$PNPM_HOME:$PATH"
 # pnpm end
 #
 export ZSH="$HOME/.oh-my-zsh"
-#
-## Set name of the theme to load --- if set to "random", it will
-## load a random theme each time oh-my-zsh is loaded, in which case,
-## to know which specific one was loaded, run: echo $RANDOM_THEME
-## See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
 ZSH_THEME="robbyrussell"
 #
-## Add wisely, as too many plugins slow down shell startup.
 plugins=(git zsh-autosuggestions zsh-syntax-highlighting fast-syntax-highlighting docker docker-compose)
 # 
 source $ZSH/oh-my-zsh.sh
-#
-## User configuration
-#
-## export MANPATH="/usr/local/man:$MANPATH"
-#
-## You may need to manually set your language environment
-## export LANG=en_US.UTF-8
 #
 ## Preferred editor for local and remote sessions
  if [[ -n $SSH_CONNECTION ]]; then
